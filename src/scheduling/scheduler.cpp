@@ -2,6 +2,6 @@
 
 using namespace scheduling;
 
-int scheduler::schedule(tasks::tasklist const& required_tasks) {
-    return 0;
+tl::expected<schedule, scheduler::fail_reason>  scheduler::generate(tasks::tasklist const& required_tasks) {
+    return tl::make_unexpected(fail_reason::TEST);
 }

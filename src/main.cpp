@@ -7,6 +7,9 @@ int main(int argc, char const* const* argv) {
         return -1;
 
     tasks::tasklist tasks = tasks::tasklist_parser::parse_file(argv[1]);
-    auto schedule = scheduling::scheduler::schedule(tasks);
+    auto schedule = scheduling::scheduler::generate(tasks);
+    if (!schedule) {
+        std::cout << "error!" << std::endl;
+    }
     return 0;
 }
