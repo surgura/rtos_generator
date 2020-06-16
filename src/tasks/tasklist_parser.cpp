@@ -4,13 +4,19 @@
 
 using namespace tasks;
 
+fu32 parse_fu32(std::string const& str) {
+    return fu32(std::stoi(str), 1);
+}
+
 tasklist parse_json(nlohmann::json const& json) {
     tasklist tasks;
 
     for (auto task_json : json) {
         tasks.tasks.push_back(task(
             task_json["function"],
-            fu32(std::stoi(task_json["frequency"].get_ref<std::string const&>()), 1)
+            parse_fu32(task_json["period"]),
+            parse_fu32(task_json["deadline"]),
+            parse_fu32(task_json["duration"])
         ));
     }
 

@@ -8,11 +8,15 @@ namespace tasks {
 class task {
 public:
     std::string function;
-    fu32 frequency;
+    fu32 period;
+    fu32 deadline;
+    fu32 duration;
 
-    task(std::string function, fu32 frequency) :
+    task(std::string function, fu32 period, fu32 deadline, fu32 duration) :
         function(function),
-        frequency(frequency)
+        period(period),
+        deadline(deadline),
+        duration(duration)
     {}
 };
 
